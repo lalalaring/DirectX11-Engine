@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{6f4e1130-2825-446e-87e9-4697665f4d8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Graphic">
+      <UniqueIdentifier>{a8536af0-3a13-4501-8735-b0c048882fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{28ca8405-2820-4879-88bc-b9a6c797d5be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Graphic">
+      <UniqueIdentifier>{7e06dc9c-04c3-4361-9402-93fec6859870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{fd9c914d-0037-4159-b5ee-acfa4764c014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Graphic\Shaders">
+      <UniqueIdentifier>{1d157d2b-0b7e-454e-aa7a-863eceb72072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Graphic\Shaders">
+      <UniqueIdentifier>{1fa5b136-00e2-4f51-b7e2-fbd51979374d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicSystem.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraSystem.cpp">
+      <Filter>Source Files\Engine\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="d3dSystem.cpp">
+      <Filter>Source Files\Engine\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelSystem.cpp">
+      <Filter>Source Files\Engine\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorShader.cpp">
+      <Filter>Source Files\Engine\Graphic\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureShader.cpp">
+      <Filter>Source Files\Engine\Graphic\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureSystem.cpp">
+      <Filter>Source Files\Engine\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="LightSystem.cpp">
+      <Filter>Source Files\Engine\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="LightShader.cpp">
+      <Filter>Source Files\Engine\Graphic\Shaders</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EngineSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicSystem.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelSystem.h">
+      <Filter>Header Files\Engine\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="d3dSystem.h">
+      <Filter>Header Files\Engine\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraSystem.h">
+      <Filter>Header Files\Engine\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorShader.h">
+      <Filter>Header Files\Engine\Graphic\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureShader.h">
+      <Filter>Header Files\Engine\Graphic\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureSystem.h">
+      <Filter>Header Files\Engine\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="LightSystem.h">
+      <Filter>Header Files\Engine\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="LightShader.h">
+      <Filter>Header Files\Engine\Graphic\Shaders</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Color.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Color.ps">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Texture.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Texture.ps">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Light.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Light.ps">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -48,7 +48,7 @@ D3DXVECTOR3 CameraSystem::GetRotation()
 	return D3DXVECTOR3(m_rotationX, m_rotationY, m_rotationZ);
 }
 
-void CameraSystem::Render()
+void CameraSystem::Update()
 {
 	D3DXVECTOR3 up, position, lookAt;
 	float yaw, pitch, roll;

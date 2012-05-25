@@ -5,13 +5,13 @@
 
 d3dSystem::d3dSystem()
 {
-	m_pSwapChain = 0;
-	m_pDevice = 0;
-	m_pDeviceContext = 0;
-	m_pRenderTargetView = 0;
-	m_pDepthStencilBuffer = 0;
-	m_pDepthStencilState = 0;
-	m_pDepthStencilView = 0;
+	m_pSwapChain			= 0;
+	m_pDevice				= 0;
+	m_pDeviceContext		= 0;
+	m_pRenderTargetView		= 0;
+	m_pDepthStencilBuffer	= 0;
+	m_pDepthStencilState	= 0;
+	m_pDepthStencilView		= 0;
 }
 
 d3dSystem::d3dSystem(const d3dSystem& other)
@@ -92,9 +92,6 @@ bool d3dSystem::Initialize(int screenWidth, int screenHeight, bool vsync, HWND h
 	// Set the handle for the window to render to.
     swapChainDesc.OutputWindow = hwnd;
 
-	// Turn multisampling off.
-/*   swapChainDesc.SampleDesc.Count = 1;
-    swapChainDesc.SampleDesc.Quality = 0;*/
 	swapChainDesc.Windowed = true;
 
 	// Set the scan line ordering and scaling to unspecified.
@@ -108,15 +105,6 @@ bool d3dSystem::Initialize(int screenWidth, int screenHeight, bool vsync, HWND h
 	swapChainDesc.Flags = 0;
 
 ////////////////////////////////////////////////////////////////////////////////
-/*
-	// Set the feature level to DirectX 11.
-	featureLevel = D3D_FEATURE_LEVEL_11_0;
-
-	// Create the swap chain, Direct3D device, and Direct3D device context.
-	D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, &featureLevel, 1, 
-										   D3D11_SDK_VERSION, &swapChainDesc, &m_pSwapChain, &m_pDevice, NULL, &m_pDeviceContext);
-
-*/
 
 	// To correctly create the swap chain, we must use the IDXGIFactory that was
 	// used to create the device.  If we tried to use a different IDXGIFactory instance
@@ -228,12 +216,12 @@ bool d3dSystem::Initialize(int screenWidth, int screenHeight, bool vsync, HWND h
 ////////////////////////////////////////////////////////////////////////////////
 
 	// Setup the viewport for rendering.
-    viewport.Width = (float)screenWidth;
-    viewport.Height = (float)screenHeight;
-    viewport.MinDepth = 0.0f;
-    viewport.MaxDepth = 1.0f;
-    viewport.TopLeftX = 0.0f;
-    viewport.TopLeftY = 0.0f;
+    viewport.Width		= (float)screenWidth;
+    viewport.Height		= (float)screenHeight;
+    viewport.MinDepth	= 0.0f;
+    viewport.MaxDepth	= 1.0f;
+    viewport.TopLeftX	= 0.0f;
+    viewport.TopLeftY	= 0.0f;
 
 	// Create the viewport.
     m_pDeviceContext->RSSetViewports(1, &viewport);
@@ -308,6 +296,8 @@ void d3dSystem::Shutdown()
 
 void d3dSystem::BeginScene(float red, float green, float blue, float alpha)
 {
+	// In frank luna's book this is call DrawScene
+
 	float color[4];
 	// Setup the color to clear the buffer to.
 	color[0] = red;

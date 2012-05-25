@@ -66,7 +66,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;d3dx11d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -84,42 +84,31 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>d3d11.lib;d3dx11.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="Color.ps" />
+    <None Include="Color.vs" />
+  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CameraSystem.cpp" />
     <ClCompile Include="ColorShader.cpp" />
     <ClCompile Include="d3dSystem.cpp" />
+    <ClCompile Include="EngineSystem.cpp" />
     <ClCompile Include="GraphicSystem.cpp" />
     <ClCompile Include="InputSystem.cpp" />
-    <ClCompile Include="LightShader.cpp" />
-    <ClCompile Include="LightSystem.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="EngineSystem.cpp" />
     <ClCompile Include="ModelSystem.cpp" />
-    <ClCompile Include="TextureShader.cpp" />
-    <ClCompile Include="TextureSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraSystem.h" />
     <ClInclude Include="ColorShader.h" />
     <ClInclude Include="d3dSystem.h" />
+    <ClInclude Include="EngineSystem.h" />
     <ClInclude Include="GraphicSystem.h" />
     <ClInclude Include="InputSystem.h" />
-    <ClInclude Include="EngineSystem.h" />
-    <ClInclude Include="LightShader.h" />
-    <ClInclude Include="LightSystem.h" />
     <ClInclude Include="ModelSystem.h" />
-    <ClInclude Include="TextureShader.h" />
-    <ClInclude Include="TextureSystem.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Color.ps" />
-    <None Include="Color.vs" />
-    <None Include="Light.ps" />
-    <None Include="Light.vs" />
-    <None Include="Texture.ps" />
-    <None Include="Texture.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

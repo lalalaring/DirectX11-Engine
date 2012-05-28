@@ -8,7 +8,9 @@
 //////////////
 // INCLUDES //
 //////////////
-#include <d3dx10math.h>
+#include <windows.h>
+#include <xnamath.h>
+#include <MathHelper.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Class name: CameraSystem
@@ -23,16 +25,23 @@ public:
 	void SetPosition(float, float, float);
 	void SetRotation(float, float, float);
 
-	D3DXVECTOR3 GetPosition();
-	D3DXVECTOR3 GetRotation();
+	XMVECTOR GetPosition();
+	XMVECTOR GetRotation();
 
 	void Update();
-	void GetViewMatrix(D3DXMATRIX&);
+	void GetViewMatrix(XMFLOAT4X4&);
 
 private:
-	float m_positionX, m_positionY, m_positionZ;
-	float m_rotationX, m_rotationY, m_rotationZ;
-	D3DXMATRIX m_viewMatrix;
+	float		m_fPositionX, m_fPositionY, m_fPositionZ;
+	float		m_fRotationX, m_fRotationY, m_fRotationZ;
+
+	XMFLOAT4X4	m_mViewMatrix;
+	XMVECTOR	m_vUp, m_vPosition, m_vLookAt;
+
+	float		m_fTheta;
+	float		m_fPhi;
+	float		m_fRadius;
+
 };
 
 #endif

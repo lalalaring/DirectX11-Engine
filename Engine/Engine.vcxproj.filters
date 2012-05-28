@@ -18,6 +18,9 @@
     <Filter Include="Header Files\Shader">
       <UniqueIdentifier>{f04e5ffb-1888-4234-a2a6-10c5570d173a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{295d8380-9193-4ea2-bcd1-50115b1a393a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Color.vs">
@@ -52,6 +55,9 @@
     <ClCompile Include="ColorShader.cpp">
       <Filter>Source Files\Shader</Filter>
     </ClCompile>
+    <ClCompile Include="Common\MathHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraSystem.h">
@@ -74,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="ColorShader.h">
       <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\MathHelper.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

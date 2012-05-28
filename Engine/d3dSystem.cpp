@@ -225,7 +225,7 @@ bool d3dSystem::Initialize(int screenWidth, int screenHeight, bool vsync, HWND h
 
 	// Create the viewport.
     m_pDeviceContext->RSSetViewports(1, &viewport);
-
+/*
 	// Setup the projection matrix.
 	fieldOfView = (float)D3DX_PI / 4.0f;
 	screenAspect = (float)screenWidth / (float)screenHeight;
@@ -238,7 +238,7 @@ bool d3dSystem::Initialize(int screenWidth, int screenHeight, bool vsync, HWND h
 
 	// Create an orthographic projection matrix for 2D rendering.
 	D3DXMatrixOrthoLH(&m_mOrthoMatrix, (float)screenWidth, (float)screenHeight, screenNear, screenDepth);
-
+*/
 	return true;
 }
 
@@ -315,18 +315,8 @@ void d3dSystem::BeginScene(float red, float green, float blue, float alpha)
 
 void d3dSystem::EndScene()
 {
-	// Present the back buffer to the screen since rendering is complete.
-	if(m_vsync_enabled)
-	{
-		// Lock to screen refresh rate.
-		m_pSwapChain->Present(1, 0);
-	}
-	else
-	{
-		// Present as fast as possible.
-		m_pSwapChain->Present(0, 0);
-	}
-	return;
+	// Present as fast as possible.
+	m_pSwapChain->Present(0, 0);
 }
 
 ID3D11Device* d3dSystem::GetDevice()
@@ -339,19 +329,19 @@ ID3D11DeviceContext* d3dSystem::GetDeviceContext()
 	return m_pDeviceContext;
 }
 
-void d3dSystem::GetProjectionMatrix(D3DXMATRIX& projectionMatrix)
+void d3dSystem::GetProjectionMatrix(XMFLOAT4X4& projectionMatrix)
 {
 	projectionMatrix = m_mProjectionMatrix;
 	return;
 }
 
-void d3dSystem::GetWorldMatrix(D3DXMATRIX& worldMatrix)
+void d3dSystem::GetWorldMatrix(XMFLOAT4X4& worldMatrix)
 {
 	worldMatrix = m_mWorldMatrix;
 	return;
 }
 
-void d3dSystem::GetOrthoMatrix(D3DXMATRIX& orthoMatrix)
+void d3dSystem::GetOrthoMatrix(XMFLOAT4X4& orthoMatrix)
 {
 	orthoMatrix = m_mOrthoMatrix;
 	return;

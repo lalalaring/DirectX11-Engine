@@ -10,7 +10,6 @@
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dx11.lib")
-#pragma comment(lib, "d3dx10.lib")
 
 //////////////
 // INCLUDES //
@@ -18,7 +17,8 @@
 #include <dxgi.h>
 #include <d3dcommon.h>
 #include <d3d11.h>
-#include <d3dx10math.h>
+#include <windows.h>
+#include <xnamath.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Class name: d3dSystem
@@ -39,9 +39,9 @@ public:
 	ID3D11Device* GetDevice();
 	ID3D11DeviceContext* GetDeviceContext();
 
-	void GetProjectionMatrix(D3DXMATRIX&);
-	void GetWorldMatrix(D3DXMATRIX&);
-	void GetOrthoMatrix(D3DXMATRIX&);
+	void GetProjectionMatrix(XMFLOAT4X4&);
+	void GetWorldMatrix(XMFLOAT4X4&);
+	void GetOrthoMatrix(XMFLOAT4X4&);
 
 private:
 	bool m_vsync_enabled;
@@ -53,9 +53,10 @@ private:
 	ID3D11Texture2D* m_pDepthStencilBuffer;
 	ID3D11DepthStencilState* m_pDepthStencilState;
 	ID3D11DepthStencilView* m_pDepthStencilView;
-	D3DXMATRIX m_mProjectionMatrix;
-	D3DXMATRIX m_mWorldMatrix;
-	D3DXMATRIX m_mOrthoMatrix;
+
+	XMFLOAT4X4 m_mProjectionMatrix;
+	XMFLOAT4X4 m_mWorldMatrix;
+	XMFLOAT4X4 m_mOrthoMatrix;
 
 };
 

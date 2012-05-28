@@ -5,14 +5,11 @@
 
 GraphicSystem::GraphicSystem()
 {
-	m_pD3D = 0;
-	m_pCamera = 0;
-	m_pModel = 0;
-	m_pColorShader = 0;
-
-	// m_TextureShader = 0;
-	// m_LightShader = 0;
-	// m_Light = 0;
+	m_pD3D			= 0;
+	m_pCamera		= 0;
+	m_pModel		= 0;
+	m_pColorShader	= 0;
+	m_fPhi			= MathHelper::Pi;
 }
 
 GraphicSystem::GraphicSystem(const GraphicSystem& other)
@@ -88,7 +85,7 @@ bool GraphicSystem::Frame()
 	static float rotation = 0.0f;
 
 	// Update the rotation variable each frame.
-	rotation += (float)D3DX_PI * 0.001f;
+	rotation += m_fPhi * 0.001f;
 	
 	if(rotation > 360.0f)
 	{
@@ -102,8 +99,6 @@ bool GraphicSystem::Frame()
 
 bool GraphicSystem::Update(float rotation)
 {
-	D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
-
 	// Clear the buffers to begin the scene.
 	m_pD3D->BeginScene(0.5f, 0.5f, 0.5f, 1.0f);
 
@@ -111,15 +106,15 @@ bool GraphicSystem::Update(float rotation)
 	m_pCamera->Update();
 
 	// Get the world, view, and projection matrices from the camera and d3d objects.
-	m_pCamera->GetViewMatrix(viewMatrix);
-	m_pD3D->GetWorldMatrix(worldMatrix);
-	m_pD3D->GetProjectionMatrix(projectionMatrix);
+	m_pCamera->GetViewMatrix(m_mViewMatrix);
+	m_pD3D->GetWorldMatrix(m_mWorldMatrix);
+	m_pD3D->GetProjectionMatrix(m_mProjectionMatrix);
 
 	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 	m_pModel->Update(m_pD3D->GetDeviceContext());
 	
 	// Render the model using the color shader.
-	m_pColorShader->Update(m_pD3D->GetDeviceContext(), m_pModel->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix);
+	m_pColorShader->Update(m_pD3D->GetDeviceContext(), m_pModel->GetIndexCount(), m_mWorldMatrix, m_mViewMatrix, m_mProjectionMatrix);
 
 	// Present the rendered scene to the screen.
 	m_pD3D->EndScene();

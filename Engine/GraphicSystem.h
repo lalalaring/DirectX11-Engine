@@ -12,11 +12,7 @@
 #include "CameraSystem.h"
 #include "ModelSystem.h"
 #include "ColorShader.h"
-
-// #include "TextureShader.h"
-// #include "LightShader.h"
-// #include "LightSystem.h"
-
+#include "MathHelper.h"
 
 /////////////
 // GLOBALS //
@@ -54,9 +50,12 @@ private:
 	ModelSystem*	m_pModel;
 	ColorShader*	m_pColorShader;
 
-	// TextureShader* m_TextureShader;
-	// LightShader* m_LightShader;
-	// LightSystem* m_Light;
+	// float mTheta;
+	float m_fPhi;
+	// float mRadius;
+
+	XMFLOAT4X4 m_mViewMatrix, m_mProjectionMatrix, m_mWorldMatrix;
+
 };
 
 #endif
